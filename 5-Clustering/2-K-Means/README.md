@@ -1,10 +1,6 @@
 # K-Means clustering
 
-[![Andrew Ng explains Clustering](https://img.youtube.com/vi/hDmNF9JG3lo/0.jpg)](https://youtu.be/hDmNF9JG3lo "Andrew Ng explains Clustering")
-
-> 🎥 Click the image above for a video: Andrew Ng explains clustering
-
-## [Pre-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/29/)
+## [Pre-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/29/)
 
 In this lesson, you will learn how to create clusters using Scikit-learn and the Nigerian music dataset you imported earlier. We will cover the basics of K-Means for Clustering. Keep in mind that, as you learned in the earlier lesson, there are many ways to work with clusters and the method you use depends on your data. We will try K-Means as it's the most common clustering technique. Let's get started!
 
@@ -30,13 +26,13 @@ The K-Means clustering process [executes in a three-step process](https://scikit
 1. The algorithm selects k-number of center points by sampling from the dataset. After this, it loops:
     1. It assigns each sample to the nearest centroid.
     2. It creates new centroids by taking the mean value of all of the samples assigned to the previous centroids.
-    3. Then, it calculates the difference between the new and old centroids and repeats until the centroids are stablized.
+    3. Then, it calculates the difference between the new and old centroids and repeats until the centroids are stabilized.
 
 One drawback of using K-Means includes the fact that you will need to establish 'k', that is the number of centroids. Fortunately the  'elbow method' helps to estimate a good starting value for 'k'. You'll try it in a minute.
 
 ## Prerequisite
 
-You will work in this lesson's _notebook.ipynb_ file that includes the data import and preliminary cleaning you did in the last lesson.
+You will work in this lesson's [_notebook.ipynb_](https://github.com/microsoft/ML-For-Beginners/blob/main/5-Clustering/2-K-Means/notebook.ipynb) file that includes the data import and preliminary cleaning you did in the last lesson.
 
 ## Exercise - preparation
 
@@ -134,7 +130,7 @@ You see an array printed out with predicted clusters (0, 1,or 2) for each row of
 
 ## Silhouette score
 
-Look for a silhouette score closer to 1. This score varies from -1 to 1, and if the score is 1, the cluster is dense and well-separated from other clusters. A value near 0 represents overlapping clusters with samples very close to the decision boundary of the neighboring clusters.[source](https://dzone.com/articles/kmeans-silhouette-score-explained-with-python-exam). 
+Look for a silhouette score closer to 1. This score varies from -1 to 1, and if the score is 1, the cluster is dense and well-separated from other clusters. A value near 0 represents overlapping clusters with samples very close to the decision boundary of the neighboring clusters. [(Source)](https://dzone.com/articles/kmeans-silhouette-score-explained-with-python-exam)
 
 Our score is **.53**, so right in the middle. This indicates that our data is not particularly well-suited to this type of clustering, but let's continue.
 
@@ -157,11 +153,11 @@ Our score is **.53**, so right in the middle. This indicates that our data is no
 
     > 🎓 range: These are the iterations of the clustering process
 
-    > 🎓 random_state: "Determines random number generation for centroid initialization."[source](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans)
+    > 🎓 random_state: "Determines random number generation for centroid initialization." [Source](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans)
 
-    > 🎓 WCSS: "within-cluster sums of squares" measures the squared average distance of all the points within a cluster to the cluster centroid.[source](https://medium.com/@ODSC/unsupervised-learning-evaluating-clusters-bd47eed175ce). 
+    > 🎓 WCSS: "within-cluster sums of squares" measures the squared average distance of all the points within a cluster to the cluster centroid. [Source](https://medium.com/@ODSC/unsupervised-learning-evaluating-clusters-bd47eed175ce). 
 
-    > 🎓 Inertia: K-Means algorithms attempt to choose centroids to minimize 'inertia', "a measure of how internally coherent clusters are."[source](https://scikit-learn.org/stable/modules/clustering.html). The value is appended to the wcss variable on each iteration.
+    > 🎓 Inertia: K-Means algorithms attempt to choose centroids to minimize 'inertia', "a measure of how internally coherent clusters are." [Source](https://scikit-learn.org/stable/modules/clustering.html). The value is appended to the wcss variable on each iteration.
 
     > 🎓 k-means++: In [Scikit-learn](https://scikit-learn.org/stable/modules/clustering.html#k-means) you can use the 'k-means++' optimization, which "initializes the centroids to be (generally) distant from each other, leading to probably better results than random initialization.
 
@@ -173,7 +169,7 @@ Previously, you surmised that, because you have targeted 3 song genres, you shou
 
     ```python
     plt.figure(figsize=(10,5))
-    sns.lineplot(range(1, 11), wcss,marker='o',color='red')
+    sns.lineplot(x=range(1, 11), y=wcss, marker='o', color='red')
     plt.title('Elbow')
     plt.xlabel('Number of clusters')
     plt.ylabel('WCSS')
@@ -224,7 +220,7 @@ Previously, you surmised that, because you have targeted 3 song genres, you shou
 
 ## Variance
 
-Variance is defined as "the average of the squared differences from the Mean."[source](https://www.mathsisfun.com/data/standard-deviation.html) In the context of this clustering problem, it refers to data that the numbers of our dataset tend to diverge a bit too much from the mean. 
+Variance is defined as "the average of the squared differences from the Mean" [(Source)](https://www.mathsisfun.com/data/standard-deviation.html). In the context of this clustering problem, it refers to data that the numbers of our dataset tend to diverge a bit too much from the mean. 
 
 ✅ This is a great moment to think about all the ways you could correct this issue. Tweak the data a bit more? Use different columns? Use a different algorithm? Hint: Try [scaling your data](https://www.mygreatlearning.com/blog/learning-data-science-with-k-means-clustering/) to normalize it and test other columns.
 
@@ -238,13 +234,13 @@ Spend some time with this notebook, tweaking parameters. Can you improve the acc
 
 Hint: Try to scale your data. There's commented code in the notebook that adds standard scaling to make the data columns resemble each other more closely in terms of range. You'll find that while the silhouette score goes down, the 'kink' in the elbow graph smooths out. This is because leaving the data unscaled allows data with less variance to carry more weight. Read a bit more on this problem [here](https://stats.stackexchange.com/questions/21222/are-mean-normalization-and-feature-scaling-needed-for-k-means-clustering/21226#21226).
 
-## [Post-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/30/)
+## [Post-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/30/)
 
 ## Review & Self Study
 
-Take a look at Stanford's K-Means Simulator [here](https://stanford.edu/class/engr108/visualizations/kmeans/kmeans.html). You can use this tool to visualize sample data points and determine its centroids. With fresh data, click 'update' to see how long it takes to find convergence. You can edit the data's randomness, numbers of clusters and numbers of centroids. Does this help you get an idea of how the data can be grouped?
+Take a look at a K-Means Simulator [such as this one](https://user.ceng.metu.edu.tr/~akifakkus/courses/ceng574/k-means/). You can use this tool to visualize sample data points and determine its centroids. You can edit the data's randomness, numbers of clusters and numbers of centroids. Does this help you get an idea of how the data can be grouped?
 
-Also, take a look at [this handout on k-means](https://stanford.edu/~cpiech/cs221/handouts/kmeans.html) from Stanford.
+Also, take a look at [this handout on K-Means](https://stanford.edu/~cpiech/cs221/handouts/kmeans.html) from Stanford.
 
 ## Assignment
 

@@ -5,7 +5,7 @@ Il processo di creazione, utilizzo e mantenimento dei modelli di machine learnin
 - Comprendere i processi ad alto livello alla base di machine learning.
 - Esplorare concetti di base come "modelli", "previsioni" e "dati di addestramento".
 
-## [Quiz Pre-Lezione](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/7/)
+## [Quiz pre-lezione](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/7/?loc=it)
 
 ## Introduzione
 
@@ -25,7 +25,7 @@ I computer sono particolarmente abili nello scoprire modelli nascosti nei dati. 
 
 Quando molte altre variabili vengono introdotte nell'equazione, tuttavia, un modello ML potrebbe rivelarsi più efficiente per prevedere i tassi di mortalità futuri in base alla storia sanitaria passata. Un esempio più allegro potrebbe essere fare previsioni meteorologiche per il mese di aprile in una determinata località sulla base di dati che includono latitudine, longitudine, cambiamento climatico, vicinanza all'oceano, modelli della corrente a getto e altro ancora.
 
-✅ Questa [presentazione](https://www2.cisl.ucar.edu/sites/default/files/0900%20June%2024%20Haupt_0.pdf) sui modelli meteorologici offre una prospettiva storica per l'utilizzo di ML nell'analisi meteorologica.
+✅ Questa [presentazione](https://www2.cisl.ucar.edu/sites/default/files/2021-10/0900%20June%2024%20Haupt_0.pdf) sui modelli meteorologici offre una prospettiva storica per l'utilizzo di ML nell'analisi meteorologica.
 
 ## Attività di pre-costruzione
 
@@ -40,9 +40,13 @@ Per poter rispondere con sicurezza alla domanda, serve una buona quantità di da
 
 ✅ Dopo aver raccolto ed elaborato i propri dati, si prenda un momento per vedere se la loro forma consentirà di rispondere alla domanda prevista. Potrebbe essere che i dati non funzionino bene nello svolgere il compito assegnato, come si scopre nelle lezioni di [Clustering](../../../5-Clustering/1-Visualize/translations/README.it.md)!
 
-### Selezione della variabile caratteristica
+### Caratteristiche e destinazione
 
-Una [caratteristica](https://www.datasciencecentral.com/profiles/blogs/an-introduction-to-variable-and-feature-selection) è una proprietà misurabile dei propri dati. In molti insiemi di dati è espressa come un'intestazione di colonna come "data", "dimensione" o "colore". La propria variabile caratteristica, solitamente rappresentata come `y` nel codice, rappresenta la risposta alla domanda che si sta cercando di porre ai propri dati: a dicembre, di che **colore** saranno le zucche più economiche? A San Francisco, quali quartieri avranno il miglior **prezzo** immobiliare?
+Una caratteristica è una proprietà misurabile dei dati. In molti set di dati è espresso come intestazione di colonna come 'date' 'size' o 'color'. La variabile di caratteristica, solitamente rappresentata come `X` nel codice, rappresenta la variabile di input che verrà utilizzata per il training del modello.
+
+Un obiettivo è una cosa che stai cercando di prevedere. Target solitamente rappresentato come `y` nel codice, rappresenta la risposta alla domanda che stai cercando di porre dei tuoi dati: a dicembre, di che colore saranno le zucche più economiche? a San Francisco, quali quartieri avranno il miglior prezzo immobiliare? A volte la destinazione viene anche definita attributo label.
+
+### Selezione della variabile caratteristica
 
 🎓 **Selezione ed estrazione della caratteristica** Come si fa a sapere quale variabile scegliere quando si costruisce un modello? Probabilmente si dovrà passare attraverso un processo di selezione o estrazione delle caratteristiche per scegliere le variabili giuste per il modello più efficace. Tuttavia, non è la stessa cosa: "L'estrazione delle caratteristiche crea nuove caratteristiche dalle funzioni delle caratteristiche originali, mentre la selezione delle caratteristiche restituisce un sottoinsieme delle caratteristiche". ([fonte](https://it.wikipedia.org/wiki/Selezione_delle_caratteristiche))
 
@@ -68,7 +72,7 @@ A seconda della domanda e della natura dei dati, si sceglierà un metodo per add
 
 ### Allenare un modello
 
-Occorre armarsi dei propri dati di allenamento, per essere pronti per "adattarli" per creare un modello. Si noterà che in molte librerie ML si trova il codice "model.fit" - è in questo momento che si inviano i propri dati come un vettore di valori (di solito "X") e una variabile di caratteristica (di solito "y" ).
+Armati dei tuoi dati di allenamento, sei pronto a "adattarlo" per creare un modello. Noterai che in molte librerie ML troverai il codice "model.fit" - è in questo momento che invii la tua variabile di funzionalità come matrice di valori (in genere `X`) e una variabile di destinazione (di solito `y`).
 
 ### Valutare il modello
 
@@ -85,7 +89,7 @@ Nel contesto di machine learning, l'adattamento del modello si riferisce all'acc
 
 ## Sintonia dei parametri
 
-Una volta completato l'addestramento iniziale, si osservi la qualità del modello e si valuti di migliorarlo modificando i suoi "iperparametri". Maggiori informazioni sul processo [nella documentazione](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters?WT.mc_id=academic-15963-cxa).
+Una volta completato l'addestramento iniziale, si osservi la qualità del modello e si valuti di migliorarlo modificando i suoi "iperparametri". Maggiori informazioni sul processo [nella documentazione](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters?WT.mc_id=academic-77952-leestott).
 
 ## Previsione
 
@@ -99,7 +103,7 @@ In queste lezioni si scoprirà come utilizzare questi passaggi per preparare, co
 
 Disegnare un diagramma di flusso che rifletta i passaggi di un professionista di ML. Dove ci si vede in questo momento nel processo? Dove si prevede che sorgeranno difficoltà? Cosa sembra facile?
 
-## [Quiz post-lezione](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/8/)
+## [Quiz post-lezione](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/8/?loc=it)
 
 ## Revisione e Auto Apprendimento
 

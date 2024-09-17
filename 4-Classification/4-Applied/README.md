@@ -4,11 +4,11 @@ In this lesson, you will build a classification model using some of the techniqu
 
 One of the most useful practical uses of machine learning is building recommendation systems, and you can take the first step in that direction today!
 
-[![Recommendation Systems Introduction](https://img.youtube.com/vi/giIXNoiqO_U/0.jpg)](https://youtu.be/giIXNoiqO_U "Recommendation Systems Introduction")
+[![Presenting this web app](https://img.youtube.com/vi/17wdM9AHMfg/0.jpg)](https://youtu.be/17wdM9AHMfg "Applied ML")
 
-> 🎥 Click the image above for a video: Andrew Ng introduces recommendation system design
+> 🎥 Click the image above for a video: Jen Looper builds a web app using classified cuisine data
 
-## [Pre-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/25/)
+## [Pre-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/25/)
 
 In this lesson you will learn:
 
@@ -40,7 +40,7 @@ First, train a classification model using the cleaned cuisines dataset we used.
 1. Then, work with your data in the same way you did in previous lessons, by reading a CSV file using `read_csv()`:
 
     ```python
-    data = pd.read_csv('../data/cleaned_cuisine.csv')
+    data = pd.read_csv('../data/cleaned_cuisines.csv')
     data.head()
     ```
 
@@ -219,91 +219,69 @@ You can use your model directly in a web app. This architecture also allows you 
 1. First, import the [Onnx Runtime](https://www.onnxruntime.ai/):
 
     ```html
-    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.8.0-dev.20210608.0/dist/ort.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.9.0/dist/ort.min.js"></script> 
     ```
 
     > Onnx Runtime is used to enable running your Onnx models across a wide range of hardware platforms, including optimizations and an API to use.
 
 1. Once the Runtime is in place, you can call it:
 
-    ```javascript
+    ```html
     <script>
-                const ingredients = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        const ingredients = Array(380).fill(0);
+        
+        const checks = [...document.querySelectorAll('.checkbox')];
+        
+        checks.forEach(check => {
+            check.addEventListener('change', function() {
+                // toggle the state of the ingredient
+                // based on the checkbox's value (1 or 0)
+                ingredients[check.value] = check.checked ? 1 : 0;
+            });
+        });
+
+        function testCheckboxes() {
+            // validate if at least one checkbox is checked
+            return checks.some(check => check.checked);
+        }
+
+        async function startInference() {
+
+            let atLeastOneChecked = testCheckboxes()
+
+            if (!atLeastOneChecked) {
+                alert('Please select at least one ingredient.');
+                return;
+            }
+            try {
+                // create a new session and load the model.
                 
-                const checks = [].slice.call(document.querySelectorAll('.checkbox'));
-    
-                // use an async context to call onnxruntime functions.
-                function init() {
-                    
-                    checks.forEach(function (checkbox, index) {
-                        checkbox.onchange = function () {
-                            if (this.checked) {
-                                var index = checkbox.value;
-    
-                                if (index !== -1) {
-                                    ingredients[index] = 1;
-                                }
-                                console.log(ingredients)
-                            }
-                            else {
-                                var index = checkbox.value;
-    
-                                if (index !== -1) {
-                                    ingredients[index] = 0;
-                                }
-                                console.log(ingredients)
-                            }
-                        }
-                    })
-                }
-    
-                function testCheckboxes() {
-                        for (var i = 0; i < checks.length; i++)
-                            if (checks[i].type == "checkbox")
-                                if (checks[i].checked)
-                                    return true;
-                        return false;
-                }
-    
-                async function startInference() {
-    
-                    let checked = testCheckboxes()
-    
-                    if (checked) {
-    
-                    try {
-                        // create a new session and load the model.
-                        
-                        const session = await ort.InferenceSession.create('./model.onnx');
-    
-                        const input = new ort.Tensor(new Float32Array(ingredients), [1, 380]);
-                        const feeds = { float_input: input };
-    
-                        // feed inputs and run
-    
-                        const results = await session.run(feeds);
-    
-                        // read from results
-                        alert('You can enjoy ' + results.label.data[0] + ' cuisine today!')
-    
-                    } catch (e) {
-                        console.log(`failed to inference ONNX model: ${e}.`);
-                    }
-                }
-                else alert("Please check an ingredient")
-                    
-                }
-        init();
+                const session = await ort.InferenceSession.create('./model.onnx');
+
+                const input = new ort.Tensor(new Float32Array(ingredients), [1, 380]);
+                const feeds = { float_input: input };
+
+                // feed inputs and run
+                const results = await session.run(feeds);
+
+                // read from results
+                alert('You can enjoy ' + results.label.data[0] + ' cuisine today!')
+
+            } catch (e) {
+                console.log(`failed to inference ONNX model`);
+                console.error(e);
+            }
+        }
                
-            </script>
+    </script>
     ```
 
 In this code, there are several things happening:
 
-1. You created an array of 380 possible values (1 or 0)  to be  set and sent to the model for inference, depending on whether an ingredient checkbox is checked.
+1. You created an array of 380 possible values (1 or 0) to be set and sent to the model for inference, depending on whether an ingredient checkbox is checked.
 2. You created an array of checkboxes and a way to determine whether they were checked in an `init` function that is called when the application starts. When a checkbox is checked, the `ingredients` array is altered to reflect the chosen ingredient.
 3. You created a `testCheckboxes` function that checks whether any checkbox was checked.
-4. You use that function when the button is pressed and, if any checkbox is checked, you start inference.
+4. You use `startInference` function when the button is pressed and, if any checkbox is checked, you start inference.
 5. The inference routine includes:
    1. Setting up an asynchronous load of the model
    2. Creating a Tensor structure to send to the model
@@ -312,7 +290,7 @@ In this code, there are several things happening:
 
 ## Test your application
 
-Open a terminal session in Visual Studio Code in the folder where your index.html file resides. Ensure that you have `[http-server](https://www.npmjs.com/package/http-server)` installed globally, and type `http-server` at the prompt. A localhost should open and you can view your web app. Check what cuisine is recommended based on various ingredients:
+Open a terminal session in Visual Studio Code in the folder where your index.html file resides. Ensure that you have [http-server](https://www.npmjs.com/package/http-server) installed globally, and type `http-server` at the prompt. A localhost should open and you can view your web app. Check what cuisine is recommended based on various ingredients:
 
 ![ingredient web app](images/web-app.png)
 
@@ -321,7 +299,7 @@ Congratulations, you have created a 'recommendation' web app  with a few fields.
 
 Your web app is very minimal, so continue to build it out using ingredients and their indexes from the [ingredient_indexes](../data/ingredient_indexes.csv) data. What flavor combinations work to create a given national dish?
 
-## [Post-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/26/)
+## [Post-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/26/)
 
 ## Review & Self Study
 

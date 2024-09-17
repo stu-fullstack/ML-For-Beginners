@@ -6,7 +6,7 @@
 ![jack-o-lantern](../images/jack-o-lanterns.jpg)
 > Foto oleh <a href="https://unsplash.com/@teutschmann?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Beth Teutschmann</a> di <a href="https://unsplash.com/s/photos/jack-o-lanterns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-##你会学到什么
+## 你会学到什么
 
 这节的课程包括机器学习领域中的多种回归模型。回归模型可以明确多种变量间的_关系_。这种模型可以用来预测类似长度、温度和年龄之类的值， 通过分析数据点来揭示变量之间的关系。
 
@@ -14,7 +14,7 @@
 
 在这组课程中，你会准备好包括为管理笔记而设置VS Code、配置数据科学家常用的环境等机器学习的初始任务。你会开始上手Scikit-learn学习项目（一个机器学习的百科），并且你会以回归模型为主构建起你的第一种机器学习模型
 
-> 这里有一些代码难度较低但很有用的工具可以帮助你学习使用回归模型。 试一下 [Azure ML for this task](https://docs.microsoft.com/learn/modules/create-regression-model-azure-machine-learning-designer/?WT.mc_id=academic-15963-cxa)
+> 这里有一些代码难度较低但很有用的工具可以帮助你学习使用回归模型。 试一下 [Azure ML for this task](https://docs.microsoft.com/learn/modules/create-regression-model-azure-machine-learning-designer/?WT.mc_id=academic-77952-leestott)
 
 
 ### Lessons

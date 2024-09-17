@@ -1,9 +1,12 @@
 # Build a regression model using Scikit-learn: prepare and visualize data
 
-> ![Data visualization infographic](./images/data-visualization.png)
-> Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)
+![Data visualization infographic](./images/data-visualization.png)
 
-## [Pre-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/11/)
+Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)
+
+## [Pre-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/11/)
+
+> ### [This lesson is available in R!](./solution/R/lesson_2.html)
 
 ## Introduction
 
@@ -18,13 +21,17 @@ In this lesson, you will learn:
 
 The question you need answered will determine what type of ML algorithms you will leverage. And the quality of the answer you get back will be heavily dependent on the nature of your data.
 
-Take a look at the [data](../data/US-pumpkins.csv) provided for this lesson. You can open this .csv file in VS Code. A quick skim immediately shows that there are blanks and a mix of strings and numeric data. There's also a strange column called 'Package' where the data is a mix between 'sacks', 'bins' and other values. The data, in fact, is a bit of a mess.
+Take a look at the [data](https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/data/US-pumpkins.csv) provided for this lesson. You can open this .csv file in VS Code. A quick skim immediately shows that there are blanks and a mix of strings and numeric data. There's also a strange column called 'Package' where the data is a mix between 'sacks', 'bins' and other values. The data, in fact, is a bit of a mess.
+
+[![ML for beginners - How to Analyze and Clean a Dataset](https://img.youtube.com/vi/5qGjczWTrDQ/0.jpg)](https://youtu.be/5qGjczWTrDQ "ML for beginners - How to Analyze and Clean a Dataset")
+
+> 🎥 Click the image above for a short video working through preparing the data for this lesson.
 
 In fact, it is not very common to be gifted a dataset that is completely ready to use to create a ML model out of the box. In this lesson, you will learn how to prepare a raw dataset using standard Python libraries. You will also learn various techniques to visualize the data.
 
 ## Case study: 'the pumpkin market'
 
-In this folder you will find a .csv file in the root `data` folder called [US-pumpkins.csv](../data/US-pumpkins.csv) which includes 1757 lines of data about the market for pumpkins, sorted into groupings by city. This is raw data extracted from the [Specialty Crops Terminal Markets Standard Reports](https://www.marketnews.usda.gov/mnp/fv-report-config-step1?type=termPrice) distributed by the United States Department of Agriculture.
+In this folder you will find a .csv file in the root `data` folder called [US-pumpkins.csv](https://github.com/microsoft/ML-For-Beginners/blob/main/2-Regression/data/US-pumpkins.csv) which includes 1757 lines of data about the market for pumpkins, sorted into groupings by city. This is raw data extracted from the [Specialty Crops Terminal Markets Standard Reports](https://www.marketnews.usda.gov/mnp/fv-report-config-step1?type=termPrice) distributed by the United States Department of Agriculture.
 
 ### Preparing data
 
@@ -34,7 +41,7 @@ This data is in the public domain. It can be downloaded in many separate files, 
 
 What do you notice about this data? You already saw that there is a mix of strings, numbers, blanks and strange values that you need to make sense of.
 
-What question can you ask of this data, using a Regression technique? What about "Predict the price of a pumpkin for sale during a given month". Looking again at the data, there are some changes you need to make to create the data structure necessary for the task. 
+What question can you ask of this data, using a Regression technique? What about "Predict the price of a pumpkin for sale during a given month". Looking again at the data, there are some changes you need to make to create the data structure necessary for the task.
 ## Exercise - analyze the pumpkin data
 
 Let's use [Pandas](https://pandas.pydata.org/), (the name stands for `Python Data Analysis`) a tool very useful for shaping data, to analyze and prepare this pumpkin data.
@@ -66,11 +73,11 @@ Open the _notebook.ipynb_ file in Visual Studio Code and import the spreadsheet 
 
     There is missing data, but maybe it won't matter for the task at hand.
 
-1. To make your dataframe easier to work with, drop several of its columns, using `drop()`, keeping only the columns you need: 
+1. To make your dataframe easier to work with, select only the columns you need, using the `loc` function which extracts from the original dataframe a group of rows (passed as first parameter) and columns (passed as second parameter). The expression `:` in the case below means "all rows".
 
     ```python
-    new_columns = ['Package', 'Month', 'Low Price', 'High Price', 'Date']
-    pumpkins = pumpkins.drop([c for c in pumpkins.columns if c not in new_columns], axis=1)
+    columns_to_select = ['Package', 'Low Price', 'High Price', 'Date']
+    pumpkins = pumpkins.loc[:, columns_to_select]
     ```
 
 ### Second, determine average price of pumpkin
@@ -83,9 +90,9 @@ Solution: take the average of the `Low Price` and `High Price` columns to popula
 
     ```python
     price = (pumpkins['Low Price'] + pumpkins['High Price']) / 2
-    
+
     month = pd.DatetimeIndex(pumpkins['Date']).month
-    
+
     ```
 
    ✅ Feel free to print any data you'd like to check using `print(month)`.
@@ -122,7 +129,7 @@ Did you notice that the bushel amount varies per row? You need to normalize the 
 
     ```python
     new_pumpkins.loc[new_pumpkins['Package'].str.contains('1 1/9'), 'Price'] = price/(1 + 1/9)
-    
+
     new_pumpkins.loc[new_pumpkins['Package'].str.contains('1/2'), 'Price'] = price/(1/2)
     ```
 
@@ -134,13 +141,17 @@ Now, you can analyze the pricing per unit based on their bushel measurement. If 
 
 ## Visualization Strategies
 
-Part of the data scientist's role is to demonstrate the quality and nature of the data they are working with. To do this, they often create interesting visualizations, or plots, graphs, and charts, showing different aspects of data. In this way, they are able to visually show relationships and gaps that are otherwise hard to uncover. 
+Part of the data scientist's role is to demonstrate the quality and nature of the data they are working with. To do this, they often create interesting visualizations, or plots, graphs, and charts, showing different aspects of data. In this way, they are able to visually show relationships and gaps that are otherwise hard to uncover.
+
+[![ML for beginners - How to Visualize Data with Matplotlib](https://img.youtube.com/vi/SbUkxH6IJo0/0.jpg)](https://youtu.be/SbUkxH6IJo0 "ML for beginners - How to Visualize Data with Matplotlib")
+
+> 🎥 Click the image above for a short video working through visualizing the data for this lesson.
 
 Visualizations can also help determine the machine learning technique most appropriate for the data. A scatterplot that seems to follow a line, for example, indicates that the data is a good candidate for a linear regression exercise.
 
-One data visualization libary that works well in Jupyter notebooks is [Matplotlib](https://matplotlib.org/) (which you also saw in the previous lesson).
+One data visualization library that works well in Jupyter notebooks is [Matplotlib](https://matplotlib.org/) (which you also saw in the previous lesson).
 
-> Get more experience with data visualization in [these tutorials](https://docs.microsoft.com/learn/modules/explore-analyze-data-with-python?WT.mc_id=academic-15963-cxa).
+> Get more experience with data visualization in [these tutorials](https://docs.microsoft.com/learn/modules/explore-analyze-data-with-python?WT.mc_id=academic-77952-leestott).
 
 ## Exercise - experiment with Matplotlib
 
@@ -189,7 +200,7 @@ To get charts to display useful data, you usually need to group the data somehow
 
 Explore the different types of visualization that Matplotlib offers. Which types are most appropriate for regression problems?
 
-## [Post-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/12/)
+## [Post-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/12/)
 
 ## Review & Self Study
 

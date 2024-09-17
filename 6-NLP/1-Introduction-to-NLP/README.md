@@ -2,7 +2,7 @@
 
 This lesson covers a brief history and important concepts of *natural language processing*, a subfield of *computational linguistics*.
 
-## [Pre-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/31/)
+## [Pre-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/31/)
 
 ## Introduction
 
@@ -17,7 +17,7 @@ You will learn about:
 
 ## Computational linguistics
 
-Computational linguistics is an area of research and development over many decades that studies how computers can work with, and even understand, translate, and communicate with languages. natural language processing (NLP) is a related field focused on how computers can process 'natural', or human, languages.
+Computational linguistics is an area of research and development over many decades that studies how computers can work with, and even understand, translate, and communicate with languages. Natural language processing (NLP) is a related field focused on how computers can process 'natural', or human, languages.
 
 ### Example - phone dictation
 
@@ -51,7 +51,7 @@ In this section, you will need, and use:
    python -m textblob.download_corpora
    ```
 
-> 💡 Tip: You can run Python directly in VS Code environments. Check the [docs](https://code.visualstudio.com/docs/languages/python?WT.mc_id=academic-15963-cxa) for more information.
+> 💡 Tip: You can run Python directly in VS Code environments. Check the [docs](https://code.visualstudio.com/docs/languages/python?WT.mc_id=academic-77952-leestott) for more information.
 
 ## Talking to machines
 
@@ -69,7 +69,7 @@ The idea for this came from a party game called *The Imitation Game* where an in
 
 ### Developing Eliza
 
-In the 1960's an MIT scientist called *Joseph Weizenbaum* developed [*Eliza*](https:/wikipedia.org/wiki/ELIZA), a computer 'therapist' that would ask the human questions and give the appearance of understanding their answers. However, while Eliza could parse a sentence and identify certain grammatical constructs and keywords so as to give a reasonable answer, it could not be said to *understand* the sentence. If Eliza was presented with a sentence following the format "**I am** <u>sad</u>" it might rearrange and substitute words in the sentence to form the response "How long have **you been** <u>sad</u>". 
+In the 1960's an MIT scientist called *Joseph Weizenbaum* developed [*Eliza*](https://wikipedia.org/wiki/ELIZA), a computer 'therapist' that would ask the human questions and give the appearance of understanding their answers. However, while Eliza could parse a sentence and identify certain grammatical constructs and keywords so as to give a reasonable answer, it could not be said to *understand* the sentence. If Eliza was presented with a sentence following the format "**I am** <u>sad</u>" it might rearrange and substitute words in the sentence to form the response "How long have **you been** <u>sad</u>". 
 
 This gave the impression that Eliza understood the statement and was asking a follow-on question, whereas in reality, it was changing the tense and adding some words. If Eliza could not identify a keyword that it had a response for, it would instead give a random response that could be applicable to many different statements. Eliza could be easily tricked, for instance if a user wrote "**You are** a <u>bicycle</u>" it might respond with "How long have **I been** a <u>bicycle</u>?", instead of a more reasoned response.
 
@@ -133,7 +133,7 @@ Let's create the bot next. We'll start by defining some phrases.
     It was nice talking to you, goodbye!
     ```
 
-    One possible solution to the task is [here](../solution/bot.py)
+    One possible solution to the task is [here](https://github.com/microsoft/ML-For-Beginners/blob/main/6-NLP/1-Introduction-to-NLP/solution/bot.py)
 
     ✅ Stop and consider
 
@@ -149,7 +149,7 @@ Choose one of the "stop and consider" elements above and either try to implement
 
 In the next lesson, you'll learn about a number of other approaches to parsing natural language and machine learning.
 
-## [Post-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/32/)
+## [Post-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/32/)
 
 ## Review & Self Study
 
@@ -162,4 +162,4 @@ Take a look at the references below as further reading opportunities.
 
 ## Assignment 
 
-[Search for a bot](../assignment.md)
+[Search for a bot](assignment.md)

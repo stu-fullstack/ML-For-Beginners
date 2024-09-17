@@ -4,7 +4,10 @@
 
 > Sketchnote by [Tomomi Imura](https://www.twitter.com/girlie_mac)
 
-## [Pre-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/9/)
+## [Pre-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/9/)
+
+> ### [This lesson is available in R!](./solution/R/lesson_1.html)
+
 ## Introduction
 
 In these four lessons, you will discover how to build regression models. We will discuss what these are for shortly. But before you do anything, make sure you have the right tools in place to start the process!
@@ -18,21 +21,25 @@ In this lesson, you will learn how to:
 
 ## Installations and configurations
 
-[![Using Python with Visual Studio Code](https://img.youtube.com/vi/7EXd4_ttIuw/0.jpg)](https://youtu.be/7EXd4_ttIuw "Using Python with Visual Studio Code")
+[![ML for beginners - Setup your tools ready to build Machine Learning models](https://img.youtube.com/vi/-DfeD2k2Kj0/0.jpg)](https://youtu.be/-DfeD2k2Kj0 "ML for beginners -Setup your tools ready to build Machine Learning models")
 
-> 🎥 Click the image above for a video: using Python within VS Code.
+> 🎥 Click the image above for a short video working through configuring your computer for ML.
 
-1. **Install Python**. Ensure that [Python](https://www.python.org/downloads/) is installed on your computer. You will use Python for many data science and machine learning tasks. Most computer systems already include a Python installation. There are useful [Python Coding Packs](https://code.visualstudio.com/learn/educators/installers?WT.mc_id=academic-15963-cxa) available as well, to ease the setup for some users.
+1. **Install Python**. Ensure that [Python](https://www.python.org/downloads/) is installed on your computer. You will use Python for many data science and machine learning tasks. Most computer systems already include a Python installation. There are useful [Python Coding Packs](https://code.visualstudio.com/learn/educators/installers?WT.mc_id=academic-77952-leestott) available as well, to ease the setup for some users.
 
    Some usages of Python, however, require one version of the software, whereas others require a different version. For this reason, it's useful to work within a [virtual environment](https://docs.python.org/3/library/venv.html).
 
-2. **Install Visual Studio Code**. Make sure you have Visual Studio Code installed on your computer. Follow these instructions to [install Visual Studio Code](https://code.visualstudio.com/) for the basic installation. You are going to use Python in Visual Studio Code in this course, so you might want to brush up on how to [configure Visual Studio Code](https://docs.microsoft.com/learn/modules/python-install-vscode?WT.mc_id=academic-15963-cxa) for Python development.
+2. **Install Visual Studio Code**. Make sure you have Visual Studio Code installed on your computer. Follow these instructions to [install Visual Studio Code](https://code.visualstudio.com/) for the basic installation. You are going to use Python in Visual Studio Code in this course, so you might want to brush up on how to [configure Visual Studio Code](https://docs.microsoft.com/learn/modules/python-install-vscode?WT.mc_id=academic-77952-leestott) for Python development.
 
-   > Get comfortable with Python by working through this collection of [Learn modules](https://docs.microsoft.com/users/jenlooper-2911/collections/mp1pagggd5qrq7?WT.mc_id=academic-15963-cxa)
+   > Get comfortable with Python by working through this collection of [Learn modules](https://docs.microsoft.com/users/jenlooper-2911/collections/mp1pagggd5qrq7?WT.mc_id=academic-77952-leestott)
+   >
+   > [![Setup Python with Visual Studio Code](https://img.youtube.com/vi/yyQM70vi7V8/0.jpg)](https://youtu.be/yyQM70vi7V8 "Setup Python with Visual Studio Code")
+   >
+   > 🎥 Click the image above for a video: using Python within VS Code.
 
 3. **Install Scikit-learn**, by following [these instructions](https://scikit-learn.org/stable/install.html). Since you need to ensure that you use Python 3, it's recommended that you use a virtual environment. Note, if you are installing this library on a M1 Mac, there are special instructions on the page linked above.
 
-1. **Install Jupyter Notebook**. You will need to [install the Jupyter package](https://pypi.org/project/jupyter/). 
+1. **Install Jupyter Notebook**. You will need to [install the Jupyter package](https://pypi.org/project/jupyter/).
 
 ## Your ML authoring environment
 
@@ -40,9 +47,13 @@ You are going to use **notebooks** to develop your Python code and create machin
 
 Notebooks are an interactive environment that allow the developer to both code and add notes and write documentation around the code which is quite helpful for experimental or research-oriented projects.
 
+[![ML for beginners - Set up Jupyter Notebooks to start building regression models](https://img.youtube.com/vi/7E-jC8FLA2E/0.jpg)](https://youtu.be/7E-jC8FLA2E "ML for beginners - Set up Jupyter Notebooks to start building regression models")
+
+> 🎥 Click the image above for a short video working through this exercise.
+
 ### Exercise - work with a notebook
 
-In this folder, you will find the file _notebook.ipynb_. 
+In this folder, you will find the file _notebook.ipynb_.
 
 1. Open _notebook.ipynb_ in Visual Studio Code.
 
@@ -50,7 +61,7 @@ In this folder, you will find the file _notebook.ipynb_.
 
 1. Select the `md` icon and add a bit of markdown, and the following text **# Welcome to your notebook**.
 
-   Next, add some Python code. 
+   Next, add some Python code.
 
 1. Type **print('hello notebook')** in the code block.
 1. Select the arrow to run the code.
@@ -61,7 +72,7 @@ In this folder, you will find the file _notebook.ipynb_.
     hello notebook
     ```
 
-![VS Code with a notebook open](images/notebook.png)
+![VS Code with a notebook open](images/notebook.jpg)
 
 You can interleaf your code with comments to self-document the notebook.
 
@@ -73,13 +84,18 @@ Now that Python is set up in your local environment, and you are comfortable wit
 
 According to their [website](https://scikit-learn.org/stable/getting_started.html), "Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection and evaluation, and many other utilities."
 
-In this course, you will use Scikit-learn and other tools to build machine learning models to perform what we call 'traditional machine learning' tasks. We have deliberately avoided neural networks and deep learning, as they are better covered in our forthcoming 'AI for Beginners' curriculum. 
+In this course, you will use Scikit-learn and other tools to build machine learning models to perform what we call 'traditional machine learning' tasks. We have deliberately avoided neural networks and deep learning, as they are better covered in our forthcoming 'AI for Beginners' curriculum.
 
 Scikit-learn makes it straightforward to build models and evaluate them for use. It is primarily focused on using numeric data and contains several ready-made datasets for use as learning tools. It also includes pre-built models for students to try. Let's explore the process of loading prepackaged data and using a built in estimator  first ML model with Scikit-learn with some basic data.
 
 ## Exercise - your first Scikit-learn notebook
 
 > This tutorial was inspired by the [linear regression example](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py) on Scikit-learn's web site.
+
+
+[![ML for beginners - Your First Linear Regression Project in Python](https://img.youtube.com/vi/2xkXL5EUpS0/0.jpg)](https://youtu.be/2xkXL5EUpS0 "ML for beginners - Your First Linear Regression Project in Python")
+
+> 🎥 Click the image above for a short video working through this exercise.
 
 In the _notebook.ipynb_ file associated to this lesson, clear out all the cells by pressing the 'trash can' icon.
 
@@ -95,7 +111,7 @@ For this task we will import some libraries:
 
 - **matplotlib**. It's a useful [graphing tool](https://matplotlib.org/) and we will use it to create a line plot.
 - **numpy**. [numpy](https://numpy.org/doc/stable/user/whatisnumpy.html) is a useful library for handling numeric data in Python.
-- **sklearn**. This is the Scikit-learn library.
+- **sklearn**. This is the [Scikit-learn](https://scikit-learn.org/stable/user_guide.html) library.
 
 Import some libraries to help with your tasks.
 
@@ -107,16 +123,16 @@ Import some libraries to help with your tasks.
    from sklearn import datasets, linear_model, model_selection
    ```
 
-   Above you are importing `matplottlib`, `numpy` and you are importing `datasets`, `linear_model` and `model_selection` from `sklearn`. `model_selection` is used for splitting data into training and test sets.
+   Above you are importing `matplotlib`, `numpy` and you are importing `datasets`, `linear_model` and `model_selection` from `sklearn`. `model_selection` is used for splitting data into training and test sets.
 
 ### The diabetes dataset
 
 The built-in [diabetes dataset](https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset) includes 442 samples of data around diabetes, with 10 feature variables, some of which include:
 
-age: age in years
-bmi: body mass index
-bp: average blood pressure
-s1 tc: T-Cells (a type of white blood cells)
+- age: age in years
+- bmi: body mass index
+- bp: average blood pressure
+- s1 tc: T-Cells (a type of white blood cells)
 
 ✅ This dataset includes the concept of 'sex' as a feature variable important to research around diabetes. Many medical datasets include this type of binary classification. Think a bit about how categorizations such as this might exclude certain parts of a population from treatments.
 
@@ -124,7 +140,7 @@ Now, load up the X and y data.
 
 > 🎓 Remember, this is supervised learning, and we need a named 'y' target.
 
-In a new code cell, load the diabetes dataset by calling `load_diabetes()`. The input `return_X_y=True` signals that `X` will be a data matrix, and `y` will be the regression target. 
+In a new code cell, load the diabetes dataset by calling `load_diabetes()`. The input `return_X_y=True` signals that `X` will be a data matrix, and `y` will be the regression target.
 
 1. Add some print commands to show the shape of the data matrix and its first element:
 
@@ -146,10 +162,11 @@ In a new code cell, load the diabetes dataset by calling `load_diabetes()`. The 
 
     ✅ Think a bit about the relationship between the data and the regression target. Linear regression predicts relationships between feature X and target variable y. Can you find the [target](https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset) for the diabetes dataset in the documentation? What is this dataset demonstrating, given that target?
 
-2. Next, select a portion of this dataset to plot by arranging it into a new array using numpy's `newaxis` function. We are going to use linear regression to generate a line between values in this data, according to a pattern it determines.
+2. Next, select a portion of this dataset to plot by selecting the 3rd column of the dataset. You can do this by using the `:` operator to select all rows, and then selecting the 3rd column using the index (2). You can also reshape the data to be a 2D array - as required for plotting - by using `reshape(n_rows, n_columns)`. If one of the parameter is -1, the corresponding dimension is calculated automatically.
 
    ```python
-   X = X[:, np.newaxis, 2]
+   X = X[:, 2]
+   X = X.reshape((-1,1))
    ```
 
    ✅ At any time, print out the data to check its shape.
@@ -180,6 +197,9 @@ In a new code cell, load the diabetes dataset by calling `load_diabetes()`. The 
     ```python
     plt.scatter(X_test, y_test,  color='black')
     plt.plot(X_test, y_pred, color='blue', linewidth=3)
+    plt.xlabel('Scaled BMIs')
+    plt.ylabel('Disease Progression')
+    plt.title('A Graph Plot Showing Diabetes Progression Against BMI')
     plt.show()
     ```
 
@@ -192,15 +212,15 @@ Congratulations, you built your first linear regression model, created a predict
 ---
 ## 🚀Challenge
 
-Plot a different variable from this dataset. Hint: edit this line: `X = X[:, np.newaxis, 2]`. Given this dataset's target, what are you able to discover about the progression of diabetes as a disease?
-## [Post-lecture quiz](https://jolly-sea-0a877260f.azurestaticapps.net/quiz/10/)
+Plot a different variable from this dataset. Hint: edit this line: `X = X[:,2]`. Given this dataset's target, what are you able to discover about the progression of diabetes as a disease?
+## [Post-lecture quiz](https://gray-sand-07a10f403.1.azurestaticapps.net/quiz/10/)
 
 ## Review & Self Study
 
 In this tutorial, you worked with simple linear regression, rather than univariate or multiple linear regression. Read a little about the differences between these methods, or take a look at [this video](https://www.coursera.org/lecture/quantifying-relationships-regression-models/linear-vs-nonlinear-categorical-variables-ai2Ef)
 
-Read more about the concept of regression and think about what kinds of questions can be answered by this technique. Take this [tutorial](https://docs.microsoft.com/learn/modules/train-evaluate-regression-models?WT.mc_id=academic-15963-cxa) to deepen your understanding.
+Read more about the concept of regression and think about what kinds of questions can be answered by this technique. Take this [tutorial](https://docs.microsoft.com/learn/modules/train-evaluate-regression-models?WT.mc_id=academic-77952-leestott) to deepen your understanding.
 
-## Assignment 
+## Assignment
 
 [A different dataset](assignment.md)
